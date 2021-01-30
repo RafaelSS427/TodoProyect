@@ -4,10 +4,8 @@ import { Todo, TodoList } from './classes'
 import { crearTodoHTML } from './js/componentes'
 
 export const todoList = new TodoList();
-const tarea = new Todo('Primer tarea199');
 
-todoList.nuevoTodo( tarea );
+//todoList.todos.forEach(todo => crearTodoHTML(todo));
+todoList.todos.forEach( crearTodoHTML );
 
-crearTodoHTML( tarea );
-
-console.log(todoList)
+console.log('Listo', todoList.todos);
