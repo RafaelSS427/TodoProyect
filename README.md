@@ -1,6 +1,6 @@
-# Webpack Starter
+# APlicación de tareas
 
-Proyecto inicial para crear aplicaciones utilizando webpack
+Proyecto creado con webpack, guarda tareas
 
 ### Notas:
 Para reconstruir los módulos de Node con:
