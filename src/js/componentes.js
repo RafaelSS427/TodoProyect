@@ -6,6 +6,9 @@ const txtInput = document.querySelector('.new-todo');
 const btnBorrarComp = document.querySelector('.clear-completed');
 const ulFiltros = document.querySelector('.filters'); 
 const anchorFiltros = document.querySelectorAll('.filtro');
+const strongP = document.querySelector('strong');
+
+export const setStrongPendiente = () => strongP.innerText = todoList.numeroPendientes();
 
 export const crearTodoHTML = ( todo ) => { 
     const todoHtml = `
@@ -33,6 +36,7 @@ txtInput.addEventListener('keyup', ( event ) => {
         todoList.nuevoTodo( todo );
 
         crearTodoHTML( todo );
+        setStrongPendiente();
         txtInput.value = '';
     }
 
@@ -46,19 +50,19 @@ ulTodoList.addEventListener('click', ( event ) => {
 
     if( nombreElemento.includes('input') ){
         todoList.marcarCompletado( todoId );
-        todoElement.classList.toggle('completed');    
+        todoElement.classList.toggle('completed');
+        setStrongPendiente();    
     } else if( nombreElemento.includes('button') ){
         todoList.eliminarTodo( todoId );
         ulTodoList.removeChild( todoElement );
+        setStrongPendiente();
     }
-
-    console.log( todoList );
-
 });
 
 btnBorrarComp.addEventListener('click', (e) => {
 
     todoList.eliminarCompletados();
+    todoList.numeroPendientes();
     //Mi forma de eliminar las tareas completadas
     // const elementosCompletados = document.querySelectorAll('.completed');
     // for (let i = 0; i < elementosCompletados.length; i++) {

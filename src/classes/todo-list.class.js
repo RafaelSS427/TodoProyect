@@ -7,6 +7,11 @@ export class TodoList {
         this.cargarLocalStorage();
     }
 
+    numeroPendientes(){
+        const tempList = this.todos.filter(todo => !todo.completado);
+        return tempList.length;
+    }
+
     nuevoTodo( todo ){
         this.todos.push(todo);
         this.guardarLocalStorage();
